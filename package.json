@@ -1,0 +1,30 @@
+{
+  "name": "create-react-redux-native-app",
+  "version": "1.0.0",
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "devDependencies": {
+    "jest-expo": "^0.2.1",
+    "react-native-scripts": "0.0.20",
+    "react-test-renderer": "~15.4.0",
+    "updtr": "^0.2.3"
+  },
+  "dependencies": {
+    "expo": "14.0.2",
+    "react": "~15.4.0",
+    "react-native": "0.41.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.1",
+    "redux-thunk": "^2.2.0"
+  }
+}
