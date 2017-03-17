@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     margin: 5,
-  }
+  },
 });
 
 export default ({ counter, increment, decrement }) => (
