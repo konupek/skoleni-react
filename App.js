@@ -15,16 +15,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
-          <CounterContainer />
-        </View>
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store}>
+    <View style={styles.container}>
+      <Text>Changes you make will automatically reload.</Text>
+      <Text>Shake your phone to open the developer menu.</Text>
+      <CounterContainer />
+    </View>
+  </Provider>
+);

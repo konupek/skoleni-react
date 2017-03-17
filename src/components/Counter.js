@@ -3,18 +3,18 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
-    width: 100,
+    width: 250,
     height: 30,
     padding: 10,
     backgroundColor: 'lightgray',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 3
+    margin: 5,
   }
 });
 
 export default ({ counter, increment, decrement }) => (
-  <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  <View style={{ alignItems: 'center', padding: 5 }}>
     <Text>{counter}</Text>
     <TouchableOpacity onPress={increment} style={styles.button}>
       <Text>INCREMENT</Text>
