@@ -13,6 +13,7 @@ Below you'll find information about performing common tasks. The most recent ver
   * [npm run ios](#npm-run-ios)
   * [npm run android](#npm-run-android)
   * [npm run eject](#npm-run-eject)
+  * [npm run up](#npm-run-up)
 * [Writing and Running Tests](#writing-and-running-tests)
 * [Customizing App Display Name and Icon](#customizing-app-display-name-and-icon)
 * [Sharing and Deployment](#sharing-and-deployment)
@@ -58,6 +59,10 @@ Like `npm start`, but also attempts to open your app on a connected Android devi
 This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
 
 **Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
+
+#### `npm run up`
+
+This will start updating all packages with [updtr](https://github.com/peerigon/updtr).
 
 ## Customizing App Display Name and Icon
 
