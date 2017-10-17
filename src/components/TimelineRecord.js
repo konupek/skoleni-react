@@ -1,13 +1,43 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image} from 'react-native';
+import React from 'react';
+import {
+    View,
+    Text,
+    Image
+} from 'react-native';
 
-export default class TimelineRecord extends Component {
-	render() {
-	  return (
-	  	<View style={{marginTop: 10, flex: 1, paddingTop: 40}}>
-	  		<Text>{this.props.data.dateTime.toString()}</Text>
-	  	    <Image  style={{width: '100%', height: '100%', padding: 30}} source={{uri: this.props.data.imgUrl}}></Image>	
-	  	</View>
-	  )
-	}	
+export default class TimelineRecord extends React.Component {
+    render() {
+        const { dateTime, imgUrl } = this.props.data;
+
+        return (
+            <View style={[styles.view]}>
+                <Text style={styles.text}>
+                    {dateTime.toString()}
+                </Text>
+                <Image
+                    source={{ uri: imgUrl }}
+                    style={styles.image}
+                />
+            </View>
+        );
+    }
+}
+
+const styles = {
+    view: {
+        flex: 1,
+        padding: 10,
+        paddingTop: 0,
+        position: 'relative'
+    },
+    image: {
+        width: null,
+        height: 300
+    },
+    text: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        color: '#007aff',
+        fontSize: 16
+    }
 }
