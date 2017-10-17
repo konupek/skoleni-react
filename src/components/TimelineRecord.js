@@ -7,10 +7,13 @@ import {
 
 export default class TimelineRecord extends React.Component {
     render() {
-        const { dateTime, imgUrl } = this.props.data;
+        const { dateTime, imgUrl, order } = this.props.data;
 
         return (
             <View style={[styles.view]}>
+                <Text style={styles.text}>
+                    #{order}
+                </Text>
                 <Text style={styles.text}>
                     {dateTime.toString()}
                 </Text>

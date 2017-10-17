@@ -1,0 +1,3 @@
+rootProject.name = 'create-react-redux-native-app'
+
+include ':app'
