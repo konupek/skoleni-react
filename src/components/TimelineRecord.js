@@ -4,18 +4,17 @@ import {
     Text,
     Image
 } from 'react-native';
+import moment from 'moment';
 
 export default class TimelineRecord extends React.Component {
     render() {
-        const { dateTime, imgUrl, order } = this.props.data;
-
+        const { dateTime, imgUrl } = this.props.data;
+        const { length } = this.props;
+        const date = moment(dateTime).format('DD.MM.YYYY HH:mm');
         return (
             <View style={[styles.view]}>
                 <Text style={styles.text}>
-                    #{order}
-                </Text>
-                <Text style={styles.text}>
-                    {dateTime.toString()}
+                    {date}
                 </Text>
                 <Image
                     source={{ uri: imgUrl }}

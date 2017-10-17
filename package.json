@@ -24,6 +24,7 @@
   "dependencies": {
     "expo": "^15.0.0",
     "firebase": "^4.5.1",
+    "moment": "^2.19.1",
     "react": "~15.4.0",
     "react-native": "^0.42.2",
     "react-native-actionsheet": "^2.3.0",
