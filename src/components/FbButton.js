@@ -3,24 +3,21 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
-    width: 250,
+    maxWidth: 250,
     height: 30,
     padding: 10,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#3B5998',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 5,
   },
 });
 
-export default ({ counter, increment, decrement }) => (
+export default ({onPress}) => (
   <View style={{ alignItems: 'center', padding: 5 }}>
-    <Text>{counter}</Text>
-    <TouchableOpacity onPress={increment} style={styles.button}>
-      <Text>INCREMENT</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={decrement} style={styles.button}>
-      <Text>DECREMENT</Text>
+    <Text>Přihlásit se pomocí facebooku</Text>
+    <TouchableOpacity onPress={onPress} style={styles.button}>
+      <Text style={{  color: 'white', fontWeight:  'bold'}}>FB Login</Text>
     </TouchableOpacity>
   </View>
 );

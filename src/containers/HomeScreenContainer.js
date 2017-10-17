@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-import CounterContainer from './CounterContainer';
+import FbButton from '../components/FbButton'; 
+import {navigate} from '../actions/list';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +14,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class HomeScreenContainer extends Component {
+export class HomeScreenContainer extends Component {
+  
+  constructor(props) {
+    super(props);
+  }
+
   static navigationOptions = {
     title: 'Create React Redux Native App',
   };
@@ -20,10 +27,14 @@ export default class HomeScreenContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <CounterContainer />
+        <FbButton onPress={()=>{this.props.actions.navigate('Home')}}/>
       </View>
     );
   }
 }
+
+export const mapStateToProps = ({home}) => ({state: home});
+
+export const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ navigate }, dispatch) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreenContainer);
