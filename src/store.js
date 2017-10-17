@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import test from './reducers/test';
 import navigation from './reducers/navigation';
+import timeline from './reducers/timeline';
 
 const identity = x => {
 	console.log(x);
@@ -16,6 +17,7 @@ const createStoreWithMiddleware = applyMiddleware(thunk, __DEV__ ? logger : iden
 const reducer = combineReducers({
   test,
   navigation,
+  timeline
 });
 
 export default () => createStoreWithMiddleware(reducer);

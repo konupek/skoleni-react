@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
     View,
     Text,
@@ -6,26 +7,21 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native';
+
 import TimelineRecord from '../components/TimelineRecord';
+import AddButton from '../components/AddButton';
+import { addTimelineRecord, navigate } from '../actions/list';
 
-const timelineRecord = {
-    imgUrl: 'http://via.placeholder.com/350x150',
-    dateTime: new Date()
-};
+const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
-export default class TimelineScreenContainer extends Component {
+class TimelineScreenContainer extends Component {
     static navigationOptions = {
         title: 'Home screen',
     };
 
     constructor() {
         super();
-
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        this.state = {
-            dataSource: ds.cloneWithRows([timelineRecord, timelineRecord])
-        }
-    }
+		}
 
     render() {
         return (
@@ -35,19 +31,14 @@ export default class TimelineScreenContainer extends Component {
                 <View
                     style={{ flex: 1 }}
                 >
-                    <ListView
-                        dataSource={this.state.dataSource}
-                        renderRow={(rowData) => <TimelineRecord data={rowData} />}
-                    />
+										<ListView
+												dataSource={this.props.timeline}
+												renderRow={(rowData) => <TimelineRecord data={rowData} />}
+										/>
                 </View>
 
                 <View style={styles.bottomContainer}>
-                    <View style={[styles.buttonBottom]}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => false}
-                        />
-                    </View>
+										<AddButton onPress={() => this.props.navigate('Camera')}/>
                 </View>
             </View>
         );
@@ -65,22 +56,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#000'
-    },
-    button: {
-        width: 45,
-        height: 45,
-        borderWidth: 2,
-        borderRadius: 50,
-        borderColor: '#000',
-    },
-    buttonBottom: {
-        flex: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 55,
-        height: 55,
-        backgroundColor: '#fff',
-        borderRadius: 50,
-        marginBottom: 10
     }
 });
+
+const mapStateToProps = (state) => {
+	return {
+		timeline: ds.cloneWithRows(state.timeline.records)
+	};
+};
+
+const mapDispatchToProps = {
+	addTimelineRecord,
+	navigate
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimelineScreenContainer);
