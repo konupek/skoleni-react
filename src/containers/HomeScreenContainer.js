@@ -27,7 +27,7 @@ export class HomeScreenContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FbButton onPress={()=>{this.props.actions.navigate('Home')}}/>
+        <FbButton onPress={()=>{this.props.actions.navigate('Timeline')}}/>
       </View>
     );
   }
